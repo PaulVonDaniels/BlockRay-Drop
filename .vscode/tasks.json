@@ -1,0 +1,50 @@
+// {
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "label": "build-raylib",
+//             "type": "shell",
+//             "command": "clang++",
+//             "args": [
+//                 "-std=c++17",
+//                 "-o",
+//                 "${workspaceFolder}/main",
+//                 "${workspaceFolder}/main.cpp",
+//                 "-I/opt/homebrew/include",
+//                 "-L/opt/homebrew/lib",
+//                 "-lraylib",
+//                 "-framework", "OpenGL",
+//                 "-framework", "Cocoa",
+//                 "-framework", "IOKit",
+//                 "-framework", "CoreVideo"
+//             ],
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             }
+//         }
+//     ]
+// }
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-and-run-raylib",
+            "type": "shell",
+            "command": "cd ${workspaceFolder} && mkdir -p build && cd build && cmake .. && make && ./main",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
